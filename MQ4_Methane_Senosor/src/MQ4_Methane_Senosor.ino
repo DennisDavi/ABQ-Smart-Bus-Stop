@@ -5,14 +5,31 @@
  * Date:
  */
 
-// setup() runs once, when the device is first turned on.
-void setup() {
-  // Put initialization like pinMode and begin functions here.
+const int MQ4ANALOGPIN = A2;
+const int MQ4DIGITALPIN = D6;
+
+int mq4Digital, mq4Analog;
+
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+void setup(){
+ 
+  pinMode(MQ4ANALOGPIN, INPUT);
+  pinMode (MQ4DIGITALPIN, INPUT);
 
 }
 
-// loop() runs over and over again, as quickly as it can execute.
-void loop() {
-  // The core of your code will likely live here.
+  void loop() {
 
-}
+
+    mq4Analog = analogRead(MQ4ANALOGPIN);
+    mq4Digital = analogRead(MQ4DIGITALPIN);
+
+    //indoor reading: 1800-2100 by an exhaust is around 3200-3400
+    Serial.printf("mq4 Analog Read:%imq Digita Read:%i\n",mq4Analog, mq4Digital); 
+   
+    delay(2000);
+  }
+
+
+  
