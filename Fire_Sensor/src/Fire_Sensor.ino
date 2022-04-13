@@ -14,6 +14,7 @@ int currentTime, lastTime;
 void setup() {
     pinMode(FLAMEPIN, INPUT);
 }
+
 void loop() {
     currentTime = millis();
     if ((currentTime - lastTime) > 1000) {
@@ -25,3 +26,4 @@ void loop() {
         Serial.printf("flame sensor:%i DIGITAL:%i\n", flameSensor, FLAMEPINDIGITAL);
         lastTime = millis();
     }
+}
