@@ -20,6 +20,8 @@ int oldButton;
 int buttonState;
 int AQpin=A3;
 int AQSensor;
+int flameSensor;
+int flamePin= A5;
 
 
 
@@ -29,6 +31,7 @@ void setup() {
   pinMode(moSensor, INPUT);
   pinMode(button,INPUT);
   pinMode(AQpin,INPUT);
+  pinMode(flamePin,INPUT);
 
 }
 
@@ -60,4 +63,19 @@ if(buttonState==1){
 
 }
 
+flameSensor=digitalRead(flamePin);
+if(flameSensor==0){
+  Serial.printf("Flame Detected.\n",flameSensor);
 }
+
+}
+
+// bool isThereFire(){
+// const int threshHold = 500;
+// if(flameSensor>threshHold){
+//   return true;
+// }else{
+//   return false;
+// }
+
+// }
